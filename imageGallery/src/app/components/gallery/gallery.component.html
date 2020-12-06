@@ -6,8 +6,12 @@
   <div class="mt-4" *ngIf="!isLoading && !noItems">
       <h1>Images</h1>
     <div class="form-group mt-4">
-      <input [(ngModel)]="searchText" class="form-control" placeholder="Search for a card" />
+      <input [(ngModel)]="searchText" class="form-control" placeholder="Search for a image by title" />
     </div>
+    <div class="col-md-6 mx-auto">
+        <pagination-controls (pageChange)="currentPg = $event"></pagination-controls>
+    </div>
+
     <div *ngIf="!isLoading" class="row mt-4 ng-tns-c3-1 ng-star-inserted">
       <div class="col-3 mb-4 ng-tns-c3-1" *ngFor="let image of allImages | search: searchText | paginate: { itemsPerPage: 50, currentPage: currentPg }">
         <div>

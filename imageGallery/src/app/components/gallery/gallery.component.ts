@@ -34,6 +34,7 @@ export class GalleryComponent implements OnInit {
       this.isLoading = false;
     });
   }
+
 }
 
 
